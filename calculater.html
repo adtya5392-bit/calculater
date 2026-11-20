@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator Design</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .calculator {
+            background-color: #2f3b47;
+            padding: 25px;
+            border-radius: 35px;
+            width: 340px;
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+        }
+
+        .display {
+            width: 100%;
+            height: 75px;
+            background-color: #00e5d4;
+            border: 3px solid #bcebe7;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            padding: 0 20px;
+            font-size: 28px;
+            color: #009e93; 
+            text-align: right;
+            outline: none;
+            box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.15);
+        }
+
+        .display::placeholder {
+            color: #00a89c;
+            opacity: 0.7;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        button {
+            background-color: #f0f0f0;
+            border: none;
+            border-radius: 18px;
+            height: 60px;
+            font-size: 18px;
+            font-weight: 500;
+            color: #333333;
+            cursor: pointer;
+            box-shadow: 0 4px 0 #b8bec4;
+            transition: all 0.1s ease;
+        }
+
+        
+        .top-row {
+            height: 45px;
+            border-radius: 22px;
+            font-size: 16px;
+        }
+
+        
+        button:active {
+            transform: translateY(3px);
+            box-shadow: 0 1px 0 #b8bec4;
+        }
+
+        button:hover {
+            background-color: #ffffff;
+        }
+    </style>
+    <script type="text/Javascript" lang="javascript">
+        function adddata(num) 
+        {
+            let input=document.getElementById('txt');
+            input.value=input.value+num;
+            
+        }
+        function calculate()
+        {
+            let domitem=document.getElementById('txt');
+            domitem.value=eval(domitem.value);
+        }
+        function clr() {
+            document.getElementById('txt').value='';
+        }
+
+    </script>
+</head>
+<body>
+
+    <div class="calculator">
+        <input type="text" class="display" id="txt" placeholder="0" readonly>
+        
+        <div class="buttons">
+            <button class="top-row" onclick="clr()">AC</button>
+            <button class="top-row" onclick="del()">DEL</button>
+            <button class="top-row" onclick="adddata(this.value)" value="%">%</button>
+            <button class="top-row" onclick="adddata(this.value)" value="/">/</button>
+
+            <button onclick="adddata(this.value)" value="7">7</button>
+            <button onclick="adddata(this.value)" value="8">8</button>
+            <button onclick="adddata(this.value)" value="9">9</button>
+            <button onclick="adddata(this.value)" value="*">*</button>
+
+            <button onclick="adddata(this.value)" value="4">4</button>
+            <button onclick="adddata(this.value)" value="5">5</button>
+            <button onclick="adddata(this.value)" value="6">6</button>
+            <button onclick="adddata(this.value)" value="-">-</button>
+
+            <button onclick="adddata(this.value)" value="1">1</button>
+            <button onclick="adddata(this.value)" value="2">2</button>
+            <button onclick="adddata(this.value)" value="3">3</button>
+            <button onclick="adddata(this.value)" value="+">+</button>
+
+            <button onclick="adddata(this.value)" value="00">00</button>
+            <button onclick="adddata(this.value)" value="0">0</button>
+            <button onclick="adddata(this.value)" value=".">.</button>
+            <button onclick="calculate()">=</button>
+        </div>
+    </div>
+
+</body>
+</html>
